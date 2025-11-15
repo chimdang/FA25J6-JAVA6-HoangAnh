@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Test</title>
+</head>
+<body>
+
+<h1>Trang Test</h1>
+
+<h3>Message: <span th:text="${message}" style="color: blue;"></span></h3>
+
+<hr>
+
+<div th:replace="~{user-info :: user-info}"></div>
+
+<hr>
+
+<h2>Danh sách liên kết:</h2>
+<ul>
+    <li><a th:href="@{/}">Trang chủ (/)</a></li>
+    <li><a th:href="@{/poly/url0}">/poly/url0</a></li>
+    <li><a th:href="@{/poly/url1}">/poly/url1</a></li>
+    <li><a th:href="@{/poly/url2}">/poly/url2</a></li>
+    <li><a th:href="@{/poly/url3}">/poly/url3</a></li>
+    <li><a th:href="@{/poly/url4}">/poly/url4</a></li>
+</ul>
+</body>
+</html>

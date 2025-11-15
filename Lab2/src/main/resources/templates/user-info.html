@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Test</title>
+</head>
+<body>
+<div th:fragment="user-info">
+    <div th:switch="${@auth.isAuthenticated()}">
+
+        <ul th:case="true">
+            <li>Username: <b>[[${@auth.username}]]</b></li>
+            <li>Roles: <b th:text="${@auth.roles}"></b></li>
+            <li><a th:href="@{/logout}">Sign-out</a></li>
+
+            <li th:if="${@auth.hasAnyRole('ADMIN')}">
+                <a href="#">Goto Administration</a>
+            </li>
+        </ul>
+
+        <ul th:case="false">
+            <li>Bạn chưa đăng nhập</li>
+            <li><a th:href="@{/login/form}">Login</a></li>
+        </ul>
+    </div>
+</div>
+</body>
